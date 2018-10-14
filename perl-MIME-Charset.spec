@@ -4,20 +4,29 @@
 #
 Name     : perl-MIME-Charset
 Version  : 1.012.2
-Release  : 1
+Release  : 2
 URL      : https://cpan.metacpan.org/authors/id/N/NE/NEZUMI/MIME-Charset-1.012.2.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NE/NEZUMI/MIME-Charset-1.012.2.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libm/libmime-charset-perl/libmime-charset-perl_1.012.2-1.debian.tar.xz
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : GPL-2.0
-Requires: perl-MIME-Charset-license
-Requires: perl-MIME-Charset-man
+License  : Artistic-1.0 GPL-1.0 GPL-2.0
+Requires: perl-MIME-Charset-license = %{version}-%{release}
+BuildRequires : buildreq-cpan
 
 %description
 MIME-Charset Package.
 This package is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
+
+%package dev
+Summary: dev components for the perl-MIME-Charset package.
+Group: Development
+Provides: perl-MIME-Charset-devel = %{version}-%{release}
+
+%description dev
+dev components for the perl-MIME-Charset package.
+
 
 %package license
 Summary: license components for the perl-MIME-Charset package.
@@ -27,19 +36,11 @@ Group: Default
 license components for the perl-MIME-Charset package.
 
 
-%package man
-Summary: man components for the perl-MIME-Charset package.
-Group: Default
-
-%description man
-man components for the perl-MIME-Charset package.
-
-
 %prep
-tar -xf %{SOURCE1}
-cd ..
 %setup -q -n MIME-Charset-1.012.2
-mkdir -p %{_topdir}/BUILD/MIME-Charset-1.012.2/deblicense/
+cd ..
+%setup -q -T -D -n MIME-Charset-1.012.2 -b 1
+mkdir -p deblicense/
 mv %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/MIME-Charset-1.012.2/deblicense/
 
 %build
@@ -64,12 +65,13 @@ make TEST_VERBOSE=1 test
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/perl-MIME-Charset
-cp COPYING %{buildroot}/usr/share/doc/perl-MIME-Charset/COPYING
+mkdir -p %{buildroot}/usr/share/package-licenses/perl-MIME-Charset
+cp COPYING %{buildroot}/usr/share/package-licenses/perl-MIME-Charset/COPYING
+cp deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-MIME-Charset/deblicense_copyright
 if test -f Makefile.PL; then
-make pure_install PERL_INSTALL_ROOT=%{buildroot}
+make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
-./Build install --installdirs=site --destdir=%{buildroot}
+./Build install --installdirs=vendor --destdir=%{buildroot}
 fi
 find %{buildroot} -type f -name .packlist -exec rm -f {} ';'
 find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
@@ -78,17 +80,18 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/MIME/Charset.pm
-/usr/lib/perl5/site_perl/5.26.1/MIME/Charset/Defaults.pm.sample
-/usr/lib/perl5/site_perl/5.26.1/MIME/Charset/UTF.pm
-/usr/lib/perl5/site_perl/5.26.1/MIME/Charset/_Compat.pm
-/usr/lib/perl5/site_perl/5.26.1/POD2/JA/MIME/Charset.pod
+/usr/lib/perl5/vendor_perl/5.26.1/MIME/Charset.pm
+/usr/lib/perl5/vendor_perl/5.26.1/MIME/Charset/Defaults.pm.sample
+/usr/lib/perl5/vendor_perl/5.26.1/MIME/Charset/UTF.pm
+/usr/lib/perl5/vendor_perl/5.26.1/MIME/Charset/_Compat.pm
+/usr/lib/perl5/vendor_perl/5.26.1/POD2/JA/MIME/Charset.pod
 
-%files license
-%defattr(-,root,root,-)
-/usr/share/doc/perl-MIME-Charset/COPYING
-
-%files man
+%files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/MIME::Charset.3
 /usr/share/man/man3/POD2::JA::MIME::Charset.3
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-MIME-Charset/COPYING
+/usr/share/package-licenses/perl-MIME-Charset/deblicense_copyright
