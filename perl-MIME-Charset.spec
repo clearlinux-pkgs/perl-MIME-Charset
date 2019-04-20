@@ -4,11 +4,11 @@
 #
 Name     : perl-MIME-Charset
 Version  : 1.012.2
-Release  : 10
+Release  : 11
 URL      : https://cpan.metacpan.org/authors/id/N/NE/NEZUMI/MIME-Charset-1.012.2.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NE/NEZUMI/MIME-Charset-1.012.2.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libm/libmime-charset-perl/libmime-charset-perl_1.012.2-1.debian.tar.xz
-Summary  : No detailed summary available
+Summary  : Charset Information for MIME
 Group    : Development/Tools
 License  : Artistic-1.0 GPL-1.0 GPL-2.0
 Requires: perl-MIME-Charset-license = %{version}-%{release}
@@ -23,6 +23,7 @@ under the same terms as Perl itself.
 Summary: dev components for the perl-MIME-Charset package.
 Group: Development
 Provides: perl-MIME-Charset-devel = %{version}-%{release}
+Requires: perl-MIME-Charset = %{version}-%{release}
 
 %description dev
 dev components for the perl-MIME-Charset package.
@@ -41,7 +42,7 @@ license components for the perl-MIME-Charset package.
 cd ..
 %setup -q -T -D -n MIME-Charset-1.012.2 -b 1
 mkdir -p deblicense/
-mv %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/MIME-Charset-1.012.2/deblicense/
+cp -r %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/MIME-Charset-1.012.2/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
