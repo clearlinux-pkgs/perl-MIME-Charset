@@ -4,7 +4,7 @@
 #
 Name     : perl-MIME-Charset
 Version  : 1.012.2
-Release  : 12
+Release  : 13
 URL      : https://cpan.metacpan.org/authors/id/N/NE/NEZUMI/MIME-Charset-1.012.2.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NE/NEZUMI/MIME-Charset-1.012.2.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libm/libmime-charset-perl/libmime-charset-perl_1.012.2-1.debian.tar.xz
@@ -79,7 +79,7 @@ make TEST_VERBOSE=1 test
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-MIME-Charset
 cp %{_builddir}/MIME-Charset-1.012.2/COPYING %{buildroot}/usr/share/package-licenses/perl-MIME-Charset/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/MIME-Charset-1.012.2/deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-MIME-Charset/054b169ea16fd2231ee891fe8d697b8158b5ac4f
+cp %{_builddir}/debian/copyright %{buildroot}/usr/share/package-licenses/perl-MIME-Charset/054b169ea16fd2231ee891fe8d697b8158b5ac4f
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -105,8 +105,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.1/MIME/Charset.pm
-/usr/lib/perl5/vendor_perl/5.30.1/MIME/Charset/Defaults.pm.sample
-/usr/lib/perl5/vendor_perl/5.30.1/MIME/Charset/UTF.pm
-/usr/lib/perl5/vendor_perl/5.30.1/MIME/Charset/_Compat.pm
-/usr/lib/perl5/vendor_perl/5.30.1/POD2/JA/MIME/Charset.pod
+/usr/lib/perl5/vendor_perl/5.30.2/MIME/Charset.pm
+/usr/lib/perl5/vendor_perl/5.30.2/MIME/Charset/Defaults.pm.sample
+/usr/lib/perl5/vendor_perl/5.30.2/MIME/Charset/UTF.pm
+/usr/lib/perl5/vendor_perl/5.30.2/MIME/Charset/_Compat.pm
+/usr/lib/perl5/vendor_perl/5.30.2/POD2/JA/MIME/Charset.pod
