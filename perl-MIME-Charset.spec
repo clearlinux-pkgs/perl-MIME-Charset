@@ -4,7 +4,7 @@
 #
 Name     : perl-MIME-Charset
 Version  : 1.012.2
-Release  : 13
+Release  : 14
 URL      : https://cpan.metacpan.org/authors/id/N/NE/NEZUMI/MIME-Charset-1.012.2.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NE/NEZUMI/MIME-Charset-1.012.2.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libm/libmime-charset-perl/libmime-charset-perl_1.012.2-1.debian.tar.xz
@@ -105,8 +105,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.2/MIME/Charset.pm
-/usr/lib/perl5/vendor_perl/5.30.2/MIME/Charset/Defaults.pm.sample
-/usr/lib/perl5/vendor_perl/5.30.2/MIME/Charset/UTF.pm
-/usr/lib/perl5/vendor_perl/5.30.2/MIME/Charset/_Compat.pm
-/usr/lib/perl5/vendor_perl/5.30.2/POD2/JA/MIME/Charset.pod
+/usr/lib/perl5/vendor_perl/5.30.3/MIME/Charset.pm
+/usr/lib/perl5/vendor_perl/5.30.3/MIME/Charset/Defaults.pm.sample
+/usr/lib/perl5/vendor_perl/5.30.3/MIME/Charset/UTF.pm
+/usr/lib/perl5/vendor_perl/5.30.3/MIME/Charset/_Compat.pm
+/usr/lib/perl5/vendor_perl/5.30.3/POD2/JA/MIME/Charset.pod
