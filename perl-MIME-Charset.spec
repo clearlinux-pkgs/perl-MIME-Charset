@@ -105,8 +105,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.32.1/MIME/Charset.pm
-/usr/lib/perl5/vendor_perl/5.32.1/MIME/Charset/Defaults.pm.sample
-/usr/lib/perl5/vendor_perl/5.32.1/MIME/Charset/UTF.pm
-/usr/lib/perl5/vendor_perl/5.32.1/MIME/Charset/_Compat.pm
-/usr/lib/perl5/vendor_perl/5.32.1/POD2/JA/MIME/Charset.pod
+/usr/lib/perl5/vendor_perl/5.34.0/MIME/Charset.pm
+/usr/lib/perl5/vendor_perl/5.34.0/MIME/Charset/Defaults.pm.sample
+/usr/lib/perl5/vendor_perl/5.34.0/MIME/Charset/UTF.pm
+/usr/lib/perl5/vendor_perl/5.34.0/MIME/Charset/_Compat.pm
+/usr/lib/perl5/vendor_perl/5.34.0/POD2/JA/MIME/Charset.pod
