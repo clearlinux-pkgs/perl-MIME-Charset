@@ -7,7 +7,7 @@
 #
 Name     : perl-MIME-Charset
 Version  : 1.013.1
-Release  : 27
+Release  : 28
 URL      : https://cpan.metacpan.org/authors/id/N/NE/NEZUMI/MIME-Charset-1.013.1.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NE/NEZUMI/MIME-Charset-1.013.1.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libm/libmime-charset-perl/libmime-charset-perl_1.012.2-1.debian.tar.xz
